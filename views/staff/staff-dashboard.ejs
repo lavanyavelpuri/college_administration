@@ -1,0 +1,38 @@
+<!-- <div class="shadow p-3 mb-5 bg-body rounded"> -->
+  <% if (error_msg != '') { %>
+    <script>alert('Oops! Not Permitted');</script> 
+  <% } %>
+  
+    <% if (role == 'admin') { %>
+      <%- include('../partials/header') %>
+          <a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+        </div>
+        </section>
+        <section class="section-users">
+          <a href="/nit/staff/all_staff" id="users" class="btn btn-outline-primary"> Staff Data</a>
+          <a href="/nit/staff/student-edit" id="users" class="btn btn-outline-primary">Student Data</a>
+        </section>
+        <section class="section-view">
+          <h3>Want to view your details? <a href="/nit/staff/info" class="bt btn-outline-warning">Click here</a></h3>
+      </section>
+      <section class="section-edit">
+          <h3>Want to edit your details? <a href="/nit/staff/edit" class="bt btn-outline-warning">Click here</a></h3>
+      </section>
+        
+    <% }else { %>
+      <%- include('../partials/header') %>
+          <a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+      </div>  
+        </section>
+        <section class="section-users">
+          <a href="/nit/staff/all_students" id="users" class="btn btn-outline-primary">View Student data</a>
+        </section>
+        <section class="section-view">
+          <h3>Want to view your details? <a href="/nit/staff/info" class="bt btn-outline-warning">Click here</a></h3>
+      </section>
+      <section class="section-edit">
+          <h3>Want to edit your details? <a href="/nit/staff/edit" class="bt btn-outline-warning">Click here</a></h3>
+      </section>
+    <% } %>
+    
+    

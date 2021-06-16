@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+        <a href="/nit/student/logout" class="btn btn-outline-danger logout">Logout</a>
+    </div> 
+</section>
+<section>
+    <h3 id="details">Your details</h3>
+
+    <div class="card mt-4">
+        <div class="card-body">
+                <h4 class="card-title">Name : <%=student.name %></h4>
+                <div class="card-subtitle text-muted mb-2">Roll No : <%= student.roll %></div>
+                <div class="card-subtitle text-muted mb-2">Email : <%= student.email %></div>
+                <div class="card-subtitle text-muted mb-2">Registered on : <%= student.createdAt.toLocaleDateString() %></div>
+                <div class="card-subtitle text-muted mb-2">Address : <%= student.address %></div>
+                <div class="card-subtitle text-muted mb-2">City : <%= student.city %></div>
+                <div class="card-subtitle text-muted mb-2">State : <%= student.state %></div>
+                <div class="card-subtitle text-muted mb-2">Country : <%= student.country %></div>
+                <div class="card-subtitle text-muted mb-2">Zip : <%= student.zip %></div>
+                <a href="/nit/student/dashboard" class="btn btn-secondary">Dashboard</a>
+                <a href="/nit/student/edit" class="btn btn-info">Edit</a>
+                <a href="/nit/student/marks/<%=student.id%>" class="btn btn-danger">View marks</a>
+                
+        </div>
+    </div>
+</section>

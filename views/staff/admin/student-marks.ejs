@@ -1,0 +1,39 @@
+<%- include('../../partials/header') %>
+<a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+</div>
+</section>
+<section>
+      <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Roll No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Registered on</th>
+            <th scope="col">Marks</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% student.forEach((person) => { %>
+          <tr>
+            <th scope="row"><%= person.roll %></th>
+            <td><%=person.name %></td>
+            <td><%= person.email %></td>
+            <td><%= person.createdAt.toLocaleDateString() %></td>
+            <% if (typeof person.Maths1 === 'undefined' ||typeof person.Maths2 === 'undefined' || typeof person.English === 'undefined'|| typeof person.Sanskrit === 'undefined' || typeof person.Physics === 'undefined' || typeof person.Chemistry === 'undefined') { %>
+              <td><a href="/nit/staff/marks/<%=person.id%>"><i class="material-icons">add_box</i></a></td>
+            <% } else { %>
+              <td><a href="/nit/staff/marks/<%=person.id%>"><i class="material-icons">edit_note</i></a></td>
+            <% } %>
+            <form action="/nit/staff/remove/<%=person.id%>?_method=DELETE" method="POST">
+                <td><button id="delete" type="submit"><i class="material-icons">delete</i></button></td>
+            </form>
+          </tr>
+          <%  }) %>
+        </tbody>
+      </table>
+      </div>
+</section>
+<a href="/nit/staff/dashboard" class="btn btn-outline-success">Back</a>

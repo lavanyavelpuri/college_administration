@@ -1,0 +1,28 @@
+<%- include('../../partials/header') %>
+<a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+</div>
+</section>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Roll No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Registered on</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% student.forEach((person) => { %>
+      <tr>
+        <th scope="row"><%= person.roll %></th>
+        <td><%=person.name %></td>
+        <td><%= person.email %></td>
+        <td><%= person.createdAt.toLocaleDateString() %></td>
+        <td><a href="/nit/staff/student/marks/<%=person.id%>" class="btn btn-outline-warning">View marks</a></td>
+      </tr>
+      <%  }) %>
+    </tbody>
+  </table>
+  <div>
+    <a href="/nit/staff/dashboard" class="btn btn-outline-success">Back</a>
+  </div>

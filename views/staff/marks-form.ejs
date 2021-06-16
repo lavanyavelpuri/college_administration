@@ -1,0 +1,60 @@
+<div class="shadow p-5 mb-5 bg-body rounded form" id="all-forms">
+    <h4>Marks Form</h4>
+<% if(error_msg != '') { %>
+<script>alert('Not permitted')</script>
+<% } %>
+<% if(typeof errors != 'undefined') { %>
+    <% errors.forEach(function (error) { %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    <% }); %> 
+<% } %> 
+<form action="/nit/staff/marks/<%=student.id%>?_method=PUT" method="POST">
+    <div class="form-row"></div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <input type="number" class="form-control" name="roll" id="roll" class="readonly" value="<%=student.roll %>" readonly>
+            </div>
+            <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="name" id="name" class="readonly" value="<%=student.name %>" readonly>
+            </div>
+        </div>
+        <label>Fill in the marks below :</label>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            <input type="number" class="form-control" name="Maths1" id="Maths1" value="<%=student.Maths1 %>" placeholder="Maths-1">
+            </div>
+            <div class="form-group col-md-4">
+            <input type="number" class="form-control" name="Maths2" id="Maths2" value="<%=student.Maths2 %>" placeholder="Maths-2">
+            </div>
+            <div class="form-group col-md-4">
+            <input type="number" class="form-control" name="Physics" id="Physics" value="<%=student.Physics %>" placeholder="Physics">
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            <input type="number" class="form-control" name="English" id="English" value="<%=student.English %>" placeholder="English">
+            </div>
+            <div class="form-group col-md-4">
+            <input type="number" class="form-control" name="Sanskrit" id="Sanskrit" value="<%=student.Sanskrit %>" placeholder="Sanskrit">
+            </div>
+            <div class="form-group col-md-4">
+            <input type="number" class="form-control" name="Chemistry" id="Chemistry" value="<%=student.Chemistry %>" placeholder="Chemistry">
+            </div>
+        </div>
+    <div class="form-btn">
+        <div class="col-6">
+        <button type="submit" class="btn btn-outline-success btn-block">Save</button>
+        </div>
+        <div class="col-6">
+            <a href="/nit/staff/dashboard" class="btn btn-outline-primary btn-block" id="cancel">Cancel</a>
+        </div>
+    </div>
+    <div class="form-row"></div>
+  </form>
+</div>

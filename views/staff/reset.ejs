@@ -1,0 +1,40 @@
+<div class="shadow p-5 mb-5 bg-body rounded form" id="all-forms">
+    <h4>Password Reset</h4>
+    <% if(typeof errors != 'undefined') { %>
+        <% errors.forEach(function (error) { %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <%= error.msg %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+        <% }); %> 
+      <% } %> 
+    <% if(success_msg != ''){ %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= success_msg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    <% } %>
+    <form action="/nit/staff/reset?_method=PUT" method="POST">
+        <div class="col-sm-12 p-3">
+            <input type="number" class="form-control" name="staffNo" id="staffNo" placeholder="Enter Staff No.">
+        </div>
+        <div class="col-sm-12 p-3">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="col-sm-12 p-3">
+            <input type="password" class="form-control" name="password1" id="password1" placeholder="Confirm Password">
+        </div>
+        <div class="form-btn mt-3">
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-outline-success btn-block">Save changes</button>
+            </div>
+            <div class="col-sm-6">
+                <a href="/nit/staff/login" class="btn btn-outline-primary btn-block">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

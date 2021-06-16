@@ -1,0 +1,35 @@
+<% if (error_msg != '') { %>
+    <script>alert('Oops! Not Permitted');</script> 
+  <% } %>
+
+      <%- include('../../partials/header') %>
+          <a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+        </div>
+        </section>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Staff No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Registered on</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% staff.forEach((person) => { %>
+      <tr>
+        <th scope="row"><%= person.staffNo %></th>
+        <td><%=person.name %></td>
+        <td><%= person.email %></td>
+        <td><%= person.role %></td>
+        <td><%= person.createdAt.toLocaleDateString() %></td>
+        <form action="/nit/staff/remove/<%=person.id%>?_method=DELETE" method="POST">
+        <td><button id="delete" type="submit"><i class="material-icons">delete</i></button></td>
+        </form>
+      </tr>
+      <%  }) %>
+    </tbody>
+  </table>
+  <a href="/nit/staff/dashboard" class="btn btn-outline-success">Back</a>

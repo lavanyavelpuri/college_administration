@@ -1,0 +1,35 @@
+<section class="section-header">
+    <h1>NIT College</h1>
+    <div class="profile">
+        <div class="profile-main">
+            <div class="profile-image">
+                <img src="https://icons-for-free.com/iconfiles/png/512/people+person+profile+user+icon-1320186207447274965.png" alt="user-icon" id="profile-img">
+            </div>
+            <div class="profile-body">
+                <h5><%= name %></h5>
+                <p>Tag: <%= role %></p>
+            </div>
+        </div>
+    <a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+    </div> 
+</section>
+<section>
+    <h3 id="details">Your details</h3>
+
+    <div class="card mt-4">
+        <div class="card-body">
+                <h4 class="card-title">Name : <%=staff.name %></h4>
+                <div class="card-subtitle text-muted mb-2">Staff No : <%= staff.staffNo %></div>
+                <div class="card-subtitle text-muted mb-2">Email : <%= staff.email %></div>
+                <div class="card-subtitle text-muted mb-2">Registered on : <%= staff.createdAt.toLocaleDateString() %></div>
+                <div class="card-subtitle text-muted mb-2">Address : <%= staff.address %></div>
+                <div class="card-subtitle text-muted mb-2">City : <%= staff.city %></div>
+                <div class="card-subtitle text-muted mb-2">State : <%= staff.state %></div>
+                <div class="card-subtitle text-muted mb-2">Country : <%= staff.country %></div>
+                <div class="card-subtitle text-muted mb-2">Zip : <%= staff.zip %></div>
+                <a href="/nit/staff/dashboard" class="btn btn-secondary">Dashboard</a>
+                <a href="/nit/staff/edit" class="btn btn-info">Edit</a>
+                
+        </div>
+    </div>
+</section>

@@ -1,0 +1,39 @@
+<%- include('../../partials/header') %>
+<a href="/nit/staff/logout" class="btn btn-outline-danger logout">Logout</a>
+</div>
+</section>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Roll No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Maths-1</th>
+        <th scope="col">Maths-2</th>
+        <th scope="col">Physics</th>
+        <th scope="col">Chemistry</th>
+        <th scope="col">English</th>
+        <th scope="col">Sanskrit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= person.roll %></th>
+        <td><%=person.name %></td>
+        <% if (typeof person.Maths1 === 'undefined' ||typeof person.Maths2 === 'undefined' || typeof person.English === 'undefined'|| typeof person.Sanskrit === 'undefined' || typeof person.Physics === 'undefined' || typeof person.Chemistry === 'undefined') { %>
+        <td>NA</td>
+        <td>NA</td>
+        <td>NA</td>
+        <td>NA</td>
+        <td>NA</td>
+        <td>NA</td>
+        <% } else{ %>
+            <td><%= person.Maths1 %></td>
+            <td><%= person.Maths2 %></td>
+            <td><%= person.Physics %></td>
+            <td><%= person.Chemistry %></td>
+            <td><%= person.English %></td>
+            <td><%= person.Sanskrit %></td>
+        <% } %> 
+      </tr>
+    </tbody>
+  </table>

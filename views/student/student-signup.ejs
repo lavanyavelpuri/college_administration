@@ -1,0 +1,67 @@
+
+<div class="shadow p-5 mb-5 bg-body rounded form" id="all-forms">
+  <h4>SignUp Form</h4>
+  <% if(typeof errors != 'undefined') { %>
+    <% errors.forEach(function (error) { %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    <% }); %> 
+  <% } %> 
+    <form action="/nit/student/signup" method="POST">
+        <div class="form-row"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                <input type="number" class="form-control" name="roll" id="roll" value="<%=student.roll %>" placeholder="Reg No">
+                </div>
+                <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="name" id="name" value="<%=student.name %>" placeholder="Full Name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="email" class="form-control" name="email" id="email" value="<%=student.email %>"placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="password" class="form-control" name="password" id="password" value="<%=student.password %>" placeholder="Password">
+                </div>
+            </div>
+        <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" name="address" id="address" value="<%=student.address %>" placeholder="Address">
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" name="city" id="city" value="<%=student.city %>" placeholder="City">
+          </div>
+          <div class="form-group col-md-4">
+            <select id="state" name="state" class="form-control" value="<%=student.state %>" style="color: grey;">
+              <option selected>State...</option>
+              <option value="Andhra">Andhra Pradesh</option>
+              <option value="Telengana">Telengana</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" name="country" id="country" value="<%=student.country %>" placeholder="Country">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="zip" id="zip" value="<%=student.zip %>" placeholder="Zip">
+          </div>
+        </div>
+        <div class="form-btn">
+            <div class="col-6">
+            <button type="submit" class="btn btn-outline-success btn-block">Sign in</button>
+            </div>
+            <div class="col-6">
+                <a href="/nit/signup" class="btn btn-outline-primary btn-block" id="cancel">Cancel</a>
+            </div>
+        </div>
+        <div class="form-row"></div>
+      </form>
+    </div>
